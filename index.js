@@ -33,5 +33,7 @@ app.post('/', async (req, res) => {
     res.json(results);
 });
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+// Export the Express app as a serverless function for Vercel
+module.exports = (req, res) => {
+    app(req, res);
+};
